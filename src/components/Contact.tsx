@@ -26,8 +26,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Email</h4>
-                  <p className="text-gray-600 dark:text-gray-400">info@radiantech.com</p>
-                  <p className="text-gray-600 dark:text-gray-400">support@radiantech.com</p>
+                  <p className="text-gray-600 dark:text-gray-400">Contact details coming soon</p>
                 </div>
               </div>
 
@@ -37,8 +36,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Phone</h4>
-                  <p className="text-gray-600 dark:text-gray-400">+1 (555) 123-4567</p>
-                  <p className="text-gray-600 dark:text-gray-400">+1 (555) 987-6543</p>
+                  <p className="text-gray-600 dark:text-gray-400">Please use the inquiry form</p>
                 </div>
               </div>
 
@@ -49,9 +47,7 @@ export const Contact: React.FC = () => {
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Office Address</h4>
                   <p className="text-gray-600 dark:text-gray-400">
-                    123 Tech Plaza, Suite 456<br />
-                    San Francisco, CA 94105<br />
-                    United States
+                    Serving businesses with Odoo ERP and website solutions.
                   </p>
                 </div>
               </div>
@@ -62,10 +58,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Live Chat</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Available 24/7</p>
-                  <button className="text-primary font-semibold mt-1 hover:underline">
-                    Start Chat
-                  </button>
+                  <p className="text-gray-600 dark:text-gray-400">Send us a message and we&apos;ll get back to you.</p>
                 </div>
               </div>
             </div>

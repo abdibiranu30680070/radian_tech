@@ -5,9 +5,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "RadianTech - Building Intelligent Software Solutions",
-  description: "We design, develop, and deliver innovative digital solutions that help businesses grow, automate processes, and achieve digital excellence.",
-  keywords: ["software development", "enterprise solutions", "cloud computing", "AI", "cybersecurity", "mobile apps", "web development", "ERP", "IT consulting"],
+  title: "RadianTech - Odoo ERP & Business Websites",
+  description: "RadianTech helps growing businesses organize operations with Odoo ERP and build professional websites that support their goals.",
+  keywords: ["Odoo ERP", "Odoo implementation", "business websites", "web development", "ERP customization", "RadianTech"],
 };
 
 export default function RootLayout({

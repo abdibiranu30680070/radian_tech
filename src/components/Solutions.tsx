@@ -56,14 +56,14 @@ const industries = [
   {
     icon: Truck,
     title: 'Logistics',
-    description: 'Fleet management, tracking systems, and supply chain optimization solutions.',
-    solutions: ['Fleet Management', 'Route Optimization', 'Tracking Systems', 'Warehouse Management'],
+    description: 'Odoo workflows and websites for import, wholesale, inventory, and customer-facing operations.',
+    solutions: ['Odoo Inventory', 'Purchasing', 'Sales Workflows', 'Business Websites'],
   },
   {
     icon: Sprout,
     title: 'Agriculture',
-    description: 'Smart farming solutions, crop management systems, and agricultural technology.',
-    solutions: ['Smart Farming', 'Crop Management', 'Weather Integration', 'Market Analysis'],
+    description: 'Practical ERP and website solutions for organizations that need clearer operations and a stronger online presence.',
+    solutions: ['Odoo ERP', 'Inventory', 'Sales', 'Web Presence'],
   },
   {
     icon: Radio,

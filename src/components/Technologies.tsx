@@ -32,7 +32,7 @@ const techCategories = [
   },
   {
     title: 'ERP',
-    technologies: ['Odoo', 'SAP', 'Microsoft Dynamics'],
+    technologies: ['Odoo', 'Odoo Studio', 'Python', 'PostgreSQL'],
     color: 'from-teal-500 to-green-500',
   },
 ];
@@ -78,7 +78,7 @@ export const Technologies: React.FC = () => {
             We continuously evaluate and adopt emerging technologies to ensure our clients benefit from the latest innovations.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            {['Agile', 'DevOps', 'CI/CD', 'Microservices', 'Serverless', 'AI/ML', 'IoT', 'Blockchain'].map((tech) => (
+            {['Odoo', 'Responsive Web', 'Python', 'PostgreSQL', 'Next.js', 'TypeScript', 'Tailwind CSS', 'API Integration'].map((tech) => (
               <span key={tech} className="bg-white/20 px-4 py-2 rounded-full font-medium">
                 {tech}
               </span>
