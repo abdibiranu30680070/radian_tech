@@ -150,24 +150,20 @@ export const HomeHighlights: React.FC = () => {
             <div className="client-marquee-track flex w-max gap-6 sm:gap-8 hover:[animation-play-state:paused]">
               {[...testimonials, ...testimonials].map((testimonial, index) => (
                 <Card key={`${testimonial.name}-${index}`} className="relative w-[min(86vw,380px)] shrink-0">
-                  <CardHeader>
-                    <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-full bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0">
-                        <img src={testimonial.logo} alt={`${testimonial.name} logo`} className="w-full h-full object-contain p-1" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-base">{testimonial.name}</CardTitle>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
-                      </div>
+                  <CardContent className="flex items-start gap-4">
+                    <div className="w-16 h-16 rounded-full bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0">
+                      <img src={testimonial.logo} alt={`${testimonial.name} logo`} className="w-full h-full object-contain p-1" />
                     </div>
-                    <div className="flex gap-1 pt-3">
-                      {[...Array(5)].map((_, starIndex) => (
-                        <Star key={starIndex} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      ))}
+                    <div className="min-w-0">
+                      <CardTitle className="text-base">{testimonial.name}</CardTitle>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{testimonial.role}</p>
+                      <div className="flex gap-1 mb-3">
+                        {[...Array(5)].map((_, starIndex) => (
+                          <Star key={starIndex} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
+                      <p className="text-sm leading-relaxed italic">&quot;{testimonial.quote}&quot;</p>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm leading-relaxed italic">&quot;{testimonial.quote}&quot;</p>
                   </CardContent>
                 </Card>
               ))}
