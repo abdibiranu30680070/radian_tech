@@ -146,30 +146,32 @@ export const HomeHighlights: React.FC = () => {
             title="Trusted by Businesses We Support"
             description="See how our clients use Odoo ERP and professional websites to make their work clearer and more organized."
           />
-          <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.name} className="relative">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-full bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0">
-                      <img src={testimonial.logo} alt={`${testimonial.name} logo`} className="w-full h-full object-contain p-1" />
+          <div className="overflow-hidden -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+            <div className="client-marquee-track flex w-max gap-6 sm:gap-8 hover:[animation-play-state:paused]">
+              {[...testimonials, ...testimonials].map((testimonial, index) => (
+                <Card key={`${testimonial.name}-${index}`} className="relative w-[min(86vw,380px)] shrink-0">
+                  <CardHeader>
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-full bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0">
+                        <img src={testimonial.logo} alt={`${testimonial.name} logo`} className="w-full h-full object-contain p-1" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-base">{testimonial.name}</CardTitle>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
+                      </div>
                     </div>
-                    <div>
-                      <CardTitle className="text-base">{testimonial.name}</CardTitle>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
+                    <div className="flex gap-1 pt-3">
+                      {[...Array(5)].map((_, starIndex) => (
+                        <Star key={starIndex} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      ))}
                     </div>
-                  </div>
-                  <div className="flex gap-1 pt-3">
-                    {[...Array(5)].map((_, index) => (
-                      <Star key={index} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm leading-relaxed italic">&quot;{testimonial.quote}&quot;</p>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm leading-relaxed italic">&quot;{testimonial.quote}&quot;</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
           <div className="text-center mt-8">
             <MoreLink href="/testimonials" label="Read more client stories" />

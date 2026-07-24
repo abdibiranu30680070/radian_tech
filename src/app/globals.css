@@ -47,7 +47,27 @@
 }
 
 @layer utilities {
+  .client-marquee-track {
+    animation: client-marquee 28s linear infinite;
+  }
+
   .text-shadow {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes client-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .client-marquee-track {
+    animation-play-state: paused;
   }
 }
