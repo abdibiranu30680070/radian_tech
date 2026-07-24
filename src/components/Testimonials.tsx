@@ -12,7 +12,6 @@ const testimonials = [
     company: 'Healthcare',
     rating: 5,
     content: 'RadianTech helped us organize our business operations with Odoo and gave our healthcare business a professional online presence.',
-    avatar: 'SJ',
     logo: '/pharmakon.jpg',
   },
   {
@@ -21,7 +20,6 @@ const testimonials = [
     company: 'Business Services',
     rating: 5,
     content: 'The RadianTech team understood our business and delivered a clear, responsive website that represents us professionally.',
-    avatar: 'MC',
     logo: '/sw.jpg',
   },
   {
@@ -30,7 +28,6 @@ const testimonials = [
     company: 'Education',
     rating: 5,
     content: 'RadianTech created a website that presents our college, programs, and creative work in a much clearer way.',
-    avatar: 'ER',
     logo: '/arak.jpg',
   },
   {
@@ -39,7 +36,6 @@ const testimonials = [
     company: 'Wholesale',
     rating: 5,
     content: 'Our Odoo ERP and website work together to make our wholesale business easier to manage and easier for customers to understand.',
-    avatar: 'DT',
     logo: '/nathy_wholesale.jpg',
   },
   {
@@ -48,7 +44,6 @@ const testimonials = [
     company: 'Import and Wholesale',
     rating: 5,
     content: 'RadianTech helped us bring our import and wholesale workflows into a more organized digital process.',
-    avatar: 'LW',
     logo: '/zalalem_import&export.jpg',
   },
   {
@@ -57,7 +52,6 @@ const testimonials = [
     company: 'Technology',
     rating: 5,
     content: 'We build practical digital solutions around Odoo ERP and modern websites so our clients can run and present their businesses better.',
-    avatar: 'JM',
     logo: '/logo.jpg',
   },
 ];
