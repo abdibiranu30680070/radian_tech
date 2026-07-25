@@ -129,8 +129,8 @@ export function Footer() {
               })}
             </div>
 
-            <div className="flex items-center gap-4">
-              <input type="email" placeholder="Subscribe to our newsletter" className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent w-64" />
+            <div className="flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
+              <input type="email" placeholder="Subscribe to our newsletter" className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent sm:w-64" />
               <button className="bg-gradient-primary px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all">
                 Subscribe
               </button>
@@ -146,7 +146,7 @@ export function Footer() {
             <p className="text-gray-400 text-sm">
               &copy; 2025 RadianTech. All rights reserved.
             </p>
-            <div className="flex items-center gap-6 text-sm">
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm sm:gap-6">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>

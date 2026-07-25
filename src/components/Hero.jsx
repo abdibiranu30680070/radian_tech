@@ -40,8 +40,8 @@ export function Hero() {
           
           {/* Left Column */}
           <div className="lg:col-span-7 text-left animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-[#0184fa]/10 text-[#0184fa] dark:bg-[#0184fa]/20 dark:text-blue-300 px-4 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider mb-6 border border-[#0184fa]/20 shadow-sm">
-              <Zap className="w-4 h-4 text-[#db0751]" />
+            <div className="inline-flex max-w-full items-center justify-center gap-2 bg-[#0184fa]/10 text-[#0184fa] dark:bg-[#0184fa]/20 dark:text-blue-300 px-3 sm:px-4 py-2 rounded-2xl sm:rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider leading-relaxed text-center mb-6 border border-[#0184fa]/20 shadow-sm">
+              <Zap className="w-4 h-4 shrink-0 text-[#db0751]" />
               Leading Enterprise Software &amp; AI Innovation
             </div>
 
@@ -60,14 +60,14 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center mb-12">
-              <a href="#contact">
-                <Button variant="primary" size="lg" className="group shadow-xl shadow-[#0184fa]/25 font-bold text-base px-8 py-4">
+              <a href="#contact" className="w-full sm:w-auto">
+                <Button variant="primary" size="lg" className="w-full sm:w-auto group shadow-xl shadow-[#0184fa]/25 font-bold text-base px-6 sm:px-8 py-4">
                   Get Started Now
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
-              <a href="#services">
-                <Button variant="secondary" size="lg" className="shadow-lg shadow-gray-200 dark:shadow-none font-semibold text-base px-8 py-4">
+              <a href="#services" className="w-full sm:w-auto">
+                <Button variant="secondary" size="lg" className="w-full sm:w-auto shadow-lg shadow-gray-200 dark:shadow-none font-semibold text-base px-6 sm:px-8 py-4">
                   Explore Services
                 </Button>
               </a>

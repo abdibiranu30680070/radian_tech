@@ -42,21 +42,21 @@ export function Navigation() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-3 transition-all duration-300 pointer-events-none">
       <nav
-        className={`pointer-events-auto max-w-6xl mx-auto transition-all duration-500 rounded-2xl ${
+        className={`pointer-events-auto max-w-6xl mx-auto transition-all duration-500 rounded-2xl px-3 sm:px-6 ${
           scrolled
-            ? 'bg-white/85 dark:bg-gray-950/90 backdrop-blur-xl border border-white/40 dark:border-gray-800/80 shadow-2xl shadow-primary/10 py-2.5 px-6'
-            : 'bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border border-white/20 dark:border-gray-800/40 py-3.5 px-6'
+            ? 'bg-white/85 dark:bg-gray-950/90 backdrop-blur-xl border border-white/40 dark:border-gray-800/80 shadow-2xl shadow-primary/10 py-2.5'
+            : 'bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border border-white/20 dark:border-gray-800/40 py-3.5'
         }`}
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center space-x-3 group">
+            <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group">
               <div className="relative">
                 <div className="absolute -inset-1 bg-gradient-primary rounded-xl blur-sm opacity-60 group-hover:opacity-100 transition duration-300"></div>
                 <img src="/logo.jpg" alt="RadianTech Logo" className="relative w-9 h-9 rounded-xl object-cover border border-white/30" />
               </div>
-              <span className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-[#0184fa] via-blue-600 to-[#db0751] bg-clip-text text-transparent">
+              <span className="text-lg sm:text-xl font-extrabold tracking-tight bg-gradient-to-r from-[#0184fa] via-blue-600 to-[#db0751] bg-clip-text text-transparent">
                 RadianTech
               </span>
             </Link>
@@ -103,7 +103,7 @@ export function Navigation() {
           </div>
 
           {/* Mobile Menu Actions */}
-          <div className="md:hidden flex items-center space-x-3">
+          <div className="md:hidden flex shrink-0 items-center space-x-1.5 sm:space-x-3">
             <button
               onClick={() => setIsDark(!isDark)}
               className="p-2 rounded-xl bg-gray-100/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-200"

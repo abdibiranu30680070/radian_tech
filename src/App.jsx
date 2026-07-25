@@ -26,7 +26,7 @@ function Home() {
 function App() {
   return (
     <Router>
-      <main className="min-h-screen flex flex-col">
+      <main className="min-h-screen min-w-0 overflow-x-clip flex flex-col">
         <Navigation />
         <div className="flex-grow">
           <Routes>
