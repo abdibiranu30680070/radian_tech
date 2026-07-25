@@ -64,38 +64,85 @@ export function Testimonials() {
           description="Hear from our satisfied clients about their experience working with RadianTech and the impact we've made on their businesses."
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="relative">
-              <div className="absolute top-4 right-4">
-                <Quote className="w-8 h-8 text-primary/20" />
-              </div>
-              <CardHeader>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-full bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0">
-                    <img
-                      src={testimonial.logo}
-                      alt={`${testimonial.company} client logo`}
-                      className="w-full h-full object-contain p-1"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
-                    <p className="text-xs text-secondary">{testimonial.company}</p>
-                  </div>
+        <div className="overflow-hidden relative w-full mt-12 py-4">
+          {/* Fade overlays */}
+          <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white dark:from-gray-900 to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white dark:from-gray-900 to-transparent z-10 pointer-events-none" />
+          
+          <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+            <div className="flex gap-8 px-4">
+              {testimonials.map((testimonial, index) => (
+                <div key={`first-${index}`} className="w-[300px] md:w-[400px] flex-shrink-0">
+                  <Card className="relative h-full">
+                    <div className="absolute top-4 right-4">
+                      <Quote className="w-8 h-8 text-primary/20" />
+                    </div>
+                    <CardHeader>
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-14 h-14 rounded-full bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0">
+                          <img
+                            src={testimonial.logo}
+                            alt={`${testimonial.company} client logo`}
+                            className="w-full h-full object-contain p-1"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
+                          <p className="text-xs text-secondary">{testimonial.company}</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-1">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm leading-relaxed italic">&quot;{testimonial.content}&quot;</p>
+                    </CardContent>
+                  </Card>
                 </div>
-                <div className="flex gap-1">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
+              ))}
+            </div>
+            
+            {/* Duplicate for infinite scroll */}
+            <div className="flex gap-8 px-4">
+              {testimonials.map((testimonial, index) => (
+                <div key={`second-${index}`} className="w-[300px] md:w-[400px] flex-shrink-0">
+                  <Card className="relative h-full">
+                    <div className="absolute top-4 right-4">
+                      <Quote className="w-8 h-8 text-primary/20" />
+                    </div>
+                    <CardHeader>
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-14 h-14 rounded-full bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0">
+                          <img
+                            src={testimonial.logo}
+                            alt={`${testimonial.company} client logo`}
+                            className="w-full h-full object-contain p-1"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
+                          <p className="text-xs text-secondary">{testimonial.company}</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-1">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm leading-relaxed italic">&quot;{testimonial.content}&quot;</p>
+                    </CardContent>
+                  </Card>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm leading-relaxed italic">&quot;{testimonial.content}&quot;</p>
-              </CardContent>
-            </Card>
-          ))}
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </Section>
