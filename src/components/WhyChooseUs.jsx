@@ -1,16 +1,15 @@
 import React from 'react';
 import { Section, SectionHeader } from './ui/Section';
 import { Button } from './ui/Button';
-import { CheckCircle, Clock, Users, Award, Zap, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const features = [
-  { icon: CheckCircle, title: '100+ Projects Delivered', description: 'Proven track record of successful project deliveries across various industries.' },
-  { icon: Users, title: '50+ Happy Clients', description: 'Building long-term relationships with satisfied clients worldwide.' },
-  { icon: Award, title: '99% Client Satisfaction', description: 'Consistently exceeding client expectations with quality deliverables.' },
-  { icon: Clock, title: '24/7 Support', description: 'Round-the-clock support to ensure your systems run smoothly.' },
-  { icon: Zap, title: 'Agile Development', description: 'Flexible and iterative approach for faster time-to-market.' },
-  { icon: Shield, title: 'Quality Assurance', description: 'Rigorous testing processes to ensure flawless software delivery.' },
+  { title: '100+ Projects Delivered', description: 'Proven track record of successful project deliveries across various industries.' },
+  { title: '50+ Happy Clients', description: 'Building long-term relationships with satisfied clients worldwide.' },
+  { title: '99% Client Satisfaction', description: 'Consistently exceeding client expectations with quality deliverables.' },
+  { title: '24/7 Support', description: 'Round-the-clock support to ensure your systems run smoothly.' },
+  { title: 'Agile Development', description: 'Flexible and iterative approach for faster time-to-market.' },
+  { title: 'Quality Assurance', description: 'Rigorous testing processes to ensure flawless software delivery.' },
 ];
 
 export function WhyChooseUs() {
@@ -29,21 +28,16 @@ export function WhyChooseUs() {
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
+          {features.map((feature, index) => (
               <div key={index} className="group bg-white/[0.03] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-[#0184fa]/50 hover:bg-white/[0.05] transition-all duration-500 hover:shadow-[0_0_30px_rgba(1,132,250,0.15)] relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0184fa]/10 via-transparent to-[#db0751]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#0184fa] to-[#db0751] rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-[#0184fa]/25 group-hover:scale-110 transition-transform duration-500">
-                    <Icon className="w-7 h-7 text-white" />
-                  </div>
+                  <span className="mb-6 block text-sm font-bold tracking-[0.2em] text-[#38a0ff]">0{index + 1}</span>
                   <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#38a0ff] transition-colors">{feature.title}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
                 </div>
               </div>
-            );
-          })}
+          ))}
         </div>
 
         <div className="mt-20 text-center">

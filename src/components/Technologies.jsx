@@ -25,9 +25,7 @@ export function Technologies() {
           {techCategories.map((category, index) => (
             <Card key={index} className="group">
               <CardHeader>
-                <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center mb-4`}>
-                  <span className="text-white font-bold text-xl">{category.title.charAt(0)}</span>
-                </div>
+                <div className={`mb-5 h-1 w-12 rounded-full bg-gradient-to-r ${category.color}`} />
                 <CardTitle>{category.title}</CardTitle>
               </CardHeader>
               <CardContent>

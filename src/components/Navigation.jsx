@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, Sparkles } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from './ui/Button';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -96,7 +96,6 @@ export function Navigation() {
             </button>
 
             <Button as={Link} to="/contact" variant="primary" size="sm" className="shadow-lg shadow-[#0184fa]/25 font-bold tracking-wide">
-                <Sparkles className="w-3.5 h-3.5 mr-1.5" />
                 Get Started
             </Button>
           </div>

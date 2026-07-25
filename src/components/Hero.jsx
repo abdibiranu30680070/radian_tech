@@ -1,39 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/Button';
-import { ArrowRight, Code, Cloud, Smartphone, Database, Shield, Zap } from 'lucide-react';
-
-const floatingIcons = [
-  { icon: Code, position: 'top-20 left-10', delay: 0 },
-  { icon: Cloud, position: 'top-40 right-20', delay: 200 },
-  { icon: Smartphone, position: 'bottom-40 left-20', delay: 400 },
-  { icon: Database, position: 'bottom-20 right-10', delay: 600 },
-  { icon: Shield, position: 'top-60 left-1/4', delay: 800 },
-  { icon: Zap, position: 'bottom-60 right-1/4', delay: 1000 },
-];
+import { ArrowRight, Zap } from 'lucide-react';
 
 export function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 pb-16 bg-gradient-to-br from-white via-blue-50/50 to-cyan-50/30 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 overflow-hidden">
-      {/* Animated Background Icons */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {floatingIcons.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <div
-              key={index}
-              className={`absolute ${item.position} opacity-10 dark:opacity-20 animate-float`}
-              style={{ animationDelay: `${item.delay}ms` }}
-            >
-              <Icon className="w-16 h-16 text-primary" />
-            </div>
-          );
-        })}
-      </div>
-
       {/* Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#0184fa]/15 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#db0751]/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute -top-24 left-[10%] h-80 w-80 rounded-full bg-[#0184fa]/15 blur-3xl" />
+      <div className="absolute -bottom-24 right-[8%] h-96 w-96 rounded-full bg-[#db0751]/15 blur-3xl" />
 
       {/* Main Container */}
       <div className="relative z-10 max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 w-full">

@@ -1,26 +1,22 @@
 import React from 'react';
 import { Section, SectionHeader } from './ui/Section';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/Card';
-import { Target, Eye, Heart, Users, MapPin, Award, Shield } from 'lucide-react';
+import { Target, Eye, MapPin } from 'lucide-react';
 
 const coreValues = [
   {
-    icon: Target,
     title: 'Innovation',
     description: 'We constantly push boundaries and embrace cutting-edge technologies to deliver forward-thinking solutions.',
   },
   {
-    icon: Shield,
     title: 'Integrity',
     description: 'We uphold the highest ethical standards in all our business dealings and client relationships.',
   },
   {
-    icon: Users,
     title: 'Collaboration',
     description: 'We believe in the power of teamwork and foster a culture of open communication and mutual respect.',
   },
   {
-    icon: Award,
     title: 'Excellence',
     description: 'We strive for perfection in every project, delivering quality that exceeds expectations.',
   },
@@ -115,22 +111,17 @@ export function About() {
         <div className="mb-20">
           <h3 className="text-3xl 2xl:text-4xl font-bold text-gray-900 dark:text-white mb-10 text-center">Core Values</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 2xl:gap-8">
-            {coreValues.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <Card key={index} className="text-center hover:border-primary/40 transition-all">
+            {coreValues.map((value, index) => (
+              <Card key={index} className="text-center hover:border-primary/40 transition-all">
                   <CardHeader>
-                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
+                    <span className="mb-4 block text-xs font-bold tracking-[0.2em] text-primary">0{index + 1}</span>
                     <CardTitle className="text-xl 2xl:text-2xl">{value.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm 2xl:text-base">{value.description}</p>
                   </CardContent>
-                </Card>
-              );
-            })}
+              </Card>
+            ))}
           </div>
         </div>
 
