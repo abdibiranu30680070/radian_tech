@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Section, SectionHeader } from './ui/Section';
+import { Button } from './ui/Button';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/Card';
 import { 
   HeartPulse, Building2, Landmark, GraduationCap, Factory, 
@@ -96,11 +98,9 @@ export function Solutions() {
                 We engineer scalable, resilient, and cloud-native solutions customized specifically to your industry compliance standards and operational goals.
               </p>
             </div>
-            <a href="#contact">
-              <button className="whitespace-nowrap bg-white text-gray-900 font-bold px-7 py-3.5 rounded-xl hover:bg-gray-100 transition-all shadow-lg hover:scale-105">
-                Explore Enterprise Plan
-              </button>
-            </a>
+            <Button as={Link} to="/contact" variant="secondary" className="whitespace-nowrap border-0 bg-white px-7 py-3.5 text-gray-900 shadow-lg hover:scale-105 hover:bg-gray-100 hover:text-gray-900">
+              Explore Enterprise Plan
+            </Button>
           </div>
         </div>
       </div>

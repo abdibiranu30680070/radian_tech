@@ -94,12 +94,10 @@ export function Navigation() {
               {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-600" />}
             </button>
 
-            <Link to="/contact">
-              <Button variant="primary" size="sm" className="shadow-lg shadow-[#0184fa]/25 font-bold tracking-wide">
+            <Button as={Link} to="/contact" variant="primary" size="sm" className="shadow-lg shadow-[#0184fa]/25 font-bold tracking-wide">
                 <Sparkles className="w-3.5 h-3.5 mr-1.5" />
                 Get Started
-              </Button>
-            </Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Actions */}
@@ -140,11 +138,9 @@ export function Navigation() {
                 );
               })}
               <div className="pt-2">
-                <Link to="/contact" className="block">
-                  <Button variant="primary" className="w-full py-3 font-bold shadow-lg shadow-primary/20">
+                <Button as={Link} to="/contact" variant="primary" className="w-full py-3 font-bold shadow-lg shadow-primary/20">
                     Get Started
-                  </Button>
-                </Link>
+                </Button>
               </div>
             </div>
           </div>

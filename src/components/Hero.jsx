@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from './ui/Button';
 import { ArrowRight, Code, Cloud, Smartphone, Database, Shield, Zap } from 'lucide-react';
 
@@ -60,17 +61,13 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center mb-12">
-              <a href="#contact" className="w-full sm:w-auto">
-                <Button variant="primary" size="lg" className="w-full sm:w-auto group shadow-xl shadow-[#0184fa]/25 font-bold text-base px-6 sm:px-8 py-4">
+              <Button as={Link} to="/contact" variant="primary" size="lg" className="w-full sm:w-auto group shadow-xl shadow-[#0184fa]/25 font-bold text-base px-6 sm:px-8 py-4">
                   Get Started Now
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </a>
-              <a href="#services" className="w-full sm:w-auto">
-                <Button variant="secondary" size="lg" className="w-full sm:w-auto shadow-lg shadow-gray-200 dark:shadow-none font-semibold text-base px-6 sm:px-8 py-4">
+              </Button>
+              <Button as={Link} to="/services" variant="secondary" size="lg" className="w-full sm:w-auto shadow-lg shadow-gray-200 dark:shadow-none font-semibold text-base px-6 sm:px-8 py-4">
                   Explore Services
-                </Button>
-              </a>
+              </Button>
             </div>
 
             {/* Inline Stats */}

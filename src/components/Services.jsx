@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Section, SectionHeader } from './ui/Section';
+import { Button } from './ui/Button';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/Card';
 import { 
   Code, Globe, Smartphone, Database, Users, Cloud, 
-  Brain, Shield, Palette, Link, BarChart, 
+  Brain, Shield, Palette, BarChart,
   RefreshCw, MessageSquare, CheckCircle, Wrench,
   ChevronDown, ChevronUp
 } from 'lucide-react';
@@ -92,11 +94,9 @@ export function Services() {
               <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto leading-relaxed">
                 Let&apos;s discuss how our tailored software solutions powered by RadianTech technology can propel your growth.
               </p>
-              <a href="#contact">
-                <button className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 hover:shadow-lg hover:shadow-primary/30 transition-all transform hover:-translate-y-0.5">
-                  Schedule a Consultation
-                </button>
-              </a>
+              <Button as={Link} to="/contact" variant="secondary" size="lg" className="border-0 bg-white px-8 text-lg shadow-lg shadow-primary/30 hover:-translate-y-0.5 hover:bg-gray-100">
+                Schedule a Consultation
+              </Button>
             </div>
           </div>
         </div>

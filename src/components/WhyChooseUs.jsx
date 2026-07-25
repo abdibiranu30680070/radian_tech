@@ -1,5 +1,6 @@
 import React from 'react';
 import { Section, SectionHeader } from './ui/Section';
+import { Button } from './ui/Button';
 import { CheckCircle, Clock, Users, Award, Zap, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -51,11 +52,9 @@ export function WhyChooseUs() {
             <div className="relative bg-slate-900 border border-white/10 rounded-2xl p-10 backdrop-blur-xl">
               <h3 className="text-3xl font-bold text-white mb-4">Ready to Get Started?</h3>
               <p className="text-gray-400 mb-8 max-w-md mx-auto text-sm sm:text-base">Let&apos;s discuss how we can help transform your business and build the future together.</p>
-              <Link to="/contact">
-                <button className="bg-gradient-to-r from-[#0184fa] via-blue-600 to-[#db0751] text-white px-8 py-3.5 rounded-lg font-bold tracking-wide hover:shadow-[0_0_20px_rgba(1,132,250,0.4)] hover:scale-105 transition-all duration-300">
-                  Contact Us Today
-                </button>
-              </Link>
+              <Button as={Link} to="/contact" className="bg-gradient-to-r from-[#0184fa] via-blue-600 to-[#db0751] px-8 py-3.5 tracking-wide hover:shadow-[0_0_20px_rgba(1,132,250,0.4)]">
+                Contact Us Today
+              </Button>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '../../lib/cn';
 
-export function Button({ variant = 'primary', size = 'md', className, children, ...props }) {
+export function Button({ as: Component = 'button', variant = 'primary', size = 'md', className, children, ...props }) {
   const baseStyles = 'inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variants = {
@@ -18,11 +18,11 @@ export function Button({ variant = 'primary', size = 'md', className, children, 
   };
   
   return (
-    <button
+    <Component
       className={cn(baseStyles, variants[variant], sizes[size], className)}
       {...props}
     >
       {children}
-    </button>
+    </Component>
   );
 }
