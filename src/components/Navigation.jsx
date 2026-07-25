@@ -1,34 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, Sparkles } from 'lucide-react';
 import { Button } from './ui/Button';
+import { Link, useLocation } from 'react-router-dom';
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Solutions', href: '#solutions' },
-  { name: 'Portfolio', href: '#portfolio' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'Solutions', href: '/solutions' },
+  { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Technologies', href: '/technologies' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
-
-      const sections = navItems.map(item => item.href.replace('#', ''));
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && el.getBoundingClientRect().top <= 120) {
-          setActiveSection(sections[i]);
-          break;
-        }
-      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -42,12 +34,10 @@ export function Navigation() {
     }
   }, [isDark]);
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
+  useEffect(() => {
     setIsOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-3 transition-all duration-300 pointer-events-none">
@@ -61,7 +51,7 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center space-x-3 group">
+            <Link to="/" className="flex items-center space-x-3 group">
               <div className="relative">
                 <div className="absolute -inset-1 bg-gradient-primary rounded-xl blur-sm opacity-60 group-hover:opacity-100 transition duration-300"></div>
                 <img src="/logo.jpg" alt="RadianTech Logo" className="relative w-9 h-9 rounded-xl object-cover border border-white/30" />
@@ -69,18 +59,17 @@ export function Navigation() {
               <span className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-[#0184fa] via-blue-600 to-[#db0751] bg-clip-text text-transparent">
                 RadianTech
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-7">
             {navItems.map((item) => {
-              const isActive = activeSection === item.href.replace('#', '');
+              const isActive = location.pathname === item.href;
               return (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
+                  to={item.href}
                   className={`text-sm font-semibold transition-all duration-200 relative group ${
                     isActive 
                       ? 'text-[#0184fa] dark:text-[#38a0ff]' 
@@ -91,7 +80,7 @@ export function Navigation() {
                   <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-primary transition-all duration-300 rounded-full ${
                     isActive ? 'w-full' : 'w-0 group-hover:w-full'
                   }`} />
-                </a>
+                </Link>
               );
             })}
             
@@ -105,12 +94,12 @@ export function Navigation() {
               {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-600" />}
             </button>
 
-            <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>
+            <Link to="/contact">
               <Button variant="primary" size="sm" className="shadow-lg shadow-[#0184fa]/25 font-bold tracking-wide">
                 <Sparkles className="w-3.5 h-3.5 mr-1.5" />
                 Get Started
               </Button>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Actions */}
@@ -134,22 +123,28 @@ export function Navigation() {
         {isOpen && (
           <div className="md:hidden mt-4 pt-4 border-t border-gray-200/80 dark:border-gray-800/80 animate-fade-in">
             <div className="space-y-2 pb-3">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block px-4 py-2.5 text-base font-semibold text-gray-800 dark:text-gray-200 hover:bg-[#0184fa]/10 hover:text-[#0184fa] rounded-xl transition-colors"
-                  onClick={(e) => handleNavClick(e, item.href)}
-                >
-                  {item.name}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.href;
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`block px-4 py-2.5 text-base font-semibold rounded-xl transition-colors ${
+                      isActive 
+                        ? 'bg-[#0184fa]/10 text-[#0184fa]' 
+                        : 'text-gray-800 dark:text-gray-200 hover:bg-[#0184fa]/10 hover:text-[#0184fa]'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
               <div className="pt-2">
-                <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>
+                <Link to="/contact" className="block">
                   <Button variant="primary" className="w-full py-3 font-bold shadow-lg shadow-primary/20">
                     Get Started
                   </Button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

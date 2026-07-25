@@ -4,12 +4,54 @@ import { Card, CardHeader, CardTitle, CardContent } from './ui/Card';
 import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
-  { name: 'Sarah Johnson', role: 'CEO, TechVentures', company: 'Healthcare', rating: 5, content: 'RadianTech transformed our entire healthcare platform. Their expertise in building scalable solutions is unmatched. The team was professional, responsive, and delivered beyond our expectations.', avatar: 'SJ' },
-  { name: 'Michael Chen', role: 'CTO, FinanceFlow', company: 'Banking', rating: 5, content: 'Working with RadianTech was a game-changer for our fintech startup. They understood our complex requirements and delivered a secure, high-performance platform that has scaled beautifully.', avatar: 'MC' },
-  { name: 'Emily Rodriguez', role: 'Director, EduWorld', company: 'Education', rating: 5, content: 'The AI-powered learning platform RadianTech built for us has revolutionized how we deliver education. Their attention to detail and commitment to quality is exceptional.', avatar: 'ER' },
-  { name: 'David Thompson', role: 'VP Operations, RetailMax', company: 'Retail', rating: 5, content: "RadianTech's omnichannel solution integrated all our systems seamlessly. Our operational efficiency has improved significantly, and customer satisfaction is at an all-time high.", avatar: 'DT' },
-  { name: 'Lisa Wang', role: 'CEO, LogiTech Solutions', company: 'Logistics', rating: 5, content: "The fleet management system developed by RadianTech optimized our entire logistics operation. We've seen significant cost savings and improved delivery times.", avatar: 'LW' },
-  { name: 'James Miller', role: 'Founder, AgriTech Co', company: 'Agriculture', rating: 5, content: 'RadianTech brought IoT and smart farming technology to our business. Their innovative approach and technical expertise helped us modernize our operations completely.', avatar: 'JM' },
+  {
+    name: 'Pharmakon',
+    role: 'Healthcare Partner',
+    company: 'Healthcare',
+    rating: 5,
+    content: 'RadianTech helped us organize our business operations with Odoo and gave our healthcare business a professional online presence.',
+    logo: '/pharmakon.jpg',
+  },
+  {
+    name: 'SW',
+    role: 'Business Partner',
+    company: 'Business Services',
+    rating: 5,
+    content: 'The RadianTech team understood our business and delivered a clear, responsive website that represents us professionally.',
+    logo: '/sw.jpg',
+  },
+  {
+    name: 'Arakele Fashion Design College',
+    role: 'Education Partner',
+    company: 'Education',
+    rating: 5,
+    content: 'RadianTech created a website that presents our college, programs, and creative work in a much clearer way.',
+    logo: '/arak.jpg',
+  },
+  {
+    name: 'Natenael Alemayew Wholesale',
+    role: 'Wholesale Partner',
+    company: 'Wholesale',
+    rating: 5,
+    content: 'Our Odoo ERP and website work together to make our wholesale business easier to manage and easier for customers to understand.',
+    logo: '/nathy_wholesale.jpg',
+  },
+  {
+    name: 'Zelalem Sebsib Import and Wholesale',
+    role: 'Import and Wholesale Partner',
+    company: 'Import and Wholesale',
+    rating: 5,
+    content: 'RadianTech helped us bring our import and wholesale workflows into a more organized digital process.',
+    logo: '/zalalem_import&export.jpg',
+  },
+  {
+    name: 'RadianTech',
+    role: 'Digital Solutions Team',
+    company: 'Technology',
+    rating: 5,
+    content: 'We build practical digital solutions around Odoo ERP and modern websites so our clients can run and present their businesses better.',
+    logo: '/logo.jpg',
+  },
 ];
 
 export function Testimonials() {
@@ -30,8 +72,12 @@ export function Testimonials() {
               </div>
               <CardHeader>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 bg-gradient-secondary rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">{testimonial.avatar}</span>
+                  <div className="w-14 h-14 rounded-full bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0">
+                    <img
+                      src={testimonial.logo}
+                      alt={`${testimonial.company} client logo`}
+                      className="w-full h-full object-contain p-1"
+                    />
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>

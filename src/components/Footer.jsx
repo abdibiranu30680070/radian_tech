@@ -1,31 +1,32 @@
 import React from 'react';
 import { Facebook, Twitter, Linkedin, Instagram, Github, Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const quickLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About Us', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Solutions', href: '#solutions' },
-  { name: 'Portfolio', href: '#portfolio' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'Solutions', href: '/solutions' },
+  { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Technologies', href: '/technologies' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 const serviceLinks = [
-  { name: 'Custom Software Development', href: '#services' },
-  { name: 'Web Development', href: '#services' },
-  { name: 'Mobile App Development', href: '#services' },
-  { name: 'Cloud Solutions', href: '#services' },
-  { name: 'AI & Machine Learning', href: '#services' },
-  { name: 'Cybersecurity', href: '#services' },
+  { name: 'Custom Software Development', href: '/services' },
+  { name: 'Web Development', href: '/services' },
+  { name: 'Mobile App Development', href: '/services' },
+  { name: 'Cloud Solutions', href: '/services' },
+  { name: 'AI & Machine Learning', href: '/services' },
+  { name: 'Cybersecurity', href: '/services' },
 ];
 
 const solutionLinks = [
-  { name: 'Healthcare', href: '#solutions' },
-  { name: 'Banking & Finance', href: '#solutions' },
-  { name: 'Education', href: '#solutions' },
-  { name: 'Retail', href: '#solutions' },
-  { name: 'Logistics', href: '#solutions' },
-  { name: 'Manufacturing', href: '#solutions' },
+  { name: 'Healthcare', href: '/solutions' },
+  { name: 'Banking & Finance', href: '/solutions' },
+  { name: 'Education', href: '/solutions' },
+  { name: 'Retail', href: '/solutions' },
+  { name: 'Logistics', href: '/solutions' },
+  { name: 'Manufacturing', href: '/solutions' },
 ];
 
 const socialLinks = [
@@ -42,7 +43,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 text-white mt-auto">
       {/* Main Footer */}
       <div className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
@@ -77,9 +78,9 @@ export function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-gray-400 hover:text-white transition-colors">
+                  <Link to={link.href} className="text-gray-400 hover:text-white transition-colors">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -91,9 +92,9 @@ export function Footer() {
             <ul className="space-y-3">
               {serviceLinks.map((service) => (
                 <li key={service.name}>
-                  <a href={service.href} className="text-gray-400 hover:text-white transition-colors">
+                  <Link to={service.href} className="text-gray-400 hover:text-white transition-colors">
                     {service.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -105,9 +106,9 @@ export function Footer() {
             <ul className="space-y-3">
               {solutionLinks.map((solution) => (
                 <li key={solution.name}>
-                  <a href={solution.href} className="text-gray-400 hover:text-white transition-colors">
+                  <Link to={solution.href} className="text-gray-400 hover:text-white transition-colors">
                     {solution.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
