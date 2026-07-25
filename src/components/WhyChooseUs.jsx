@@ -1,6 +1,7 @@
 import React from 'react';
 import { Section, SectionHeader } from './ui/Section';
 import { CheckCircle, Clock, Users, Award, Zap, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const features = [
   { icon: CheckCircle, title: '100+ Projects Delivered', description: 'Proven track record of successful project deliveries across various industries.' },
@@ -13,8 +14,12 @@ const features = [
 
 export function WhyChooseUs() {
   return (
-    <Section id="why-choose-us" background="primary">
-      <div className="max-w-7xl mx-auto">
+    <Section id="why-choose-us" className="relative overflow-hidden !bg-slate-950" background="none">
+      {/* Background glowing effects */}
+      <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-[#0184fa]/20 rounded-full blur-[128px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-[#db0751]/20 rounded-full blur-[128px] pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
           subtitle="Why Choose Us"
           title="The RadianTech Advantage"
@@ -26,26 +31,32 @@ export function WhyChooseUs() {
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div key={index} className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all">
-                <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center mb-4">
-                  <Icon className="w-7 h-7 text-primary" />
+              <div key={index} className="group bg-white/[0.03] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-[#0184fa]/50 hover:bg-white/[0.05] transition-all duration-500 hover:shadow-[0_0_30px_rgba(1,132,250,0.15)] relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0184fa]/10 via-transparent to-[#db0751]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#0184fa] to-[#db0751] rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-[#0184fa]/25 group-hover:scale-110 transition-transform duration-500">
+                    <Icon className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#38a0ff] transition-colors">{feature.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-white/80 text-sm leading-relaxed">{feature.description}</p>
               </div>
             );
           })}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="inline-block bg-white rounded-2xl p-8 shadow-2xl">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Ready to Get Started?</h3>
-            <p className="text-gray-600 mb-6">Let&apos;s discuss how we can help transform your business.</p>
-            <a href="#contact">
-              <button className="bg-gradient-primary text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
-                Contact Us Today
-              </button>
-            </a>
+        <div className="mt-20 text-center">
+          <div className="inline-block relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#0184fa] via-blue-600 to-[#db0751] rounded-2xl blur-md opacity-25 group-hover:opacity-75 transition duration-500"></div>
+            <div className="relative bg-slate-900 border border-white/10 rounded-2xl p-10 backdrop-blur-xl">
+              <h3 className="text-3xl font-bold text-white mb-4">Ready to Get Started?</h3>
+              <p className="text-gray-400 mb-8 max-w-md mx-auto text-sm sm:text-base">Let&apos;s discuss how we can help transform your business and build the future together.</p>
+              <Link to="/contact">
+                <button className="bg-gradient-to-r from-[#0184fa] via-blue-600 to-[#db0751] text-white px-8 py-3.5 rounded-lg font-bold tracking-wide hover:shadow-[0_0_20px_rgba(1,132,250,0.4)] hover:scale-105 transition-all duration-300">
+                  Contact Us Today
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
