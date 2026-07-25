@@ -33,19 +33,14 @@ const leadershipTeam = [
     description: 'Visionary tech leader driving digital transformation across Africa and beyond.',
   },
   {
-    name: 'Sarah Chen',
-    role: 'CTO',
-    description: 'Expert in cloud architecture and AI systems.',
+    name: 'Abdi Biranu',
+    role: 'Software Developer',
+    description: 'Expert in full-stack development and scalable systems architecture.',
   },
   {
-    name: 'Michael Johnson',
-    role: 'COO',
-    description: 'Operations and strategy specialist.',
-  },
-  {
-    name: 'Emily Davis',
-    role: 'CFO',
-    description: 'Financial planning and growth expert.',
+    name: 'Dandi Takilu',
+    role: 'Software Developer',
+    description: 'Passionate about building responsive, user-centric digital experiences.',
   },
 ];
 
@@ -142,7 +137,7 @@ export function About() {
         {/* Leadership Team */}
         <div className="mb-20">
           <h3 className="text-3xl 2xl:text-4xl font-bold text-gray-900 dark:text-white mb-10 text-center">Leadership Team</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 2xl:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 2xl:gap-8 max-w-5xl mx-auto">
             {leadershipTeam.map((member, index) => (
               <Card key={index} className="text-center hover:border-primary/40 transition-all">
                 <CardHeader>
