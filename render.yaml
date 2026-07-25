@@ -3,4 +3,4 @@ services:
     name: radian-tech
     runtime: static
     buildCommand: npm install && npm run build
-    staticPublishPath: ./out
+    staticPublishPath: ./dist
