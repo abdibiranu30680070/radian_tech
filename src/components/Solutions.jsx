@@ -8,16 +8,16 @@ import {
 } from 'lucide-react';
 
 const industries = [
-  { icon: HeartPulse, title: 'Healthcare', description: 'Electronic health records, telemedicine platforms, and healthcare management systems.', solutions: ['EHR Systems', 'Telemedicine', 'Medical Billing', 'Patient Management'] },
-  { icon: Landmark, title: 'Banking & Finance', description: 'Secure banking applications, trading platforms, and financial management solutions.', solutions: ['Mobile Banking', 'Trading Platforms', 'Risk Management', 'Compliance'] },
-  { icon: Building2, title: 'Government', description: 'Digital governance solutions, citizen portals, and public service management systems.', solutions: ['E-Government', 'Citizen Portals', 'Document Management', 'Public Services'] },
-  { icon: GraduationCap, title: 'Education', description: 'Learning management systems, educational platforms, and school administration software.', solutions: ['LMS Platforms', 'Virtual Classrooms', 'Student Management', 'E-Learning'] },
-  { icon: Factory, title: 'Manufacturing', description: 'Industry 4.0 solutions, IoT integration, and production management systems.', solutions: ['IoT Solutions', 'Production Management', 'Quality Control', 'Supply Chain'] },
-  { icon: ShoppingCart, title: 'Retail', description: 'E-commerce platforms, POS systems, and customer experience solutions.', solutions: ['E-Commerce', 'POS Systems', 'Inventory Management', 'Customer Loyalty'] },
-  { icon: Truck, title: 'Logistics', description: 'Fleet management, tracking systems, and supply chain optimization solutions.', solutions: ['Fleet Management', 'Route Optimization', 'Tracking Systems', 'Warehouse Management'] },
-  { icon: Sprout, title: 'Agriculture', description: 'Smart farming solutions, crop management systems, and agricultural technology.', solutions: ['Smart Farming', 'Crop Management', 'Weather Integration', 'Market Analysis'] },
-  { icon: Radio, title: 'Telecommunications', description: 'Network management, billing systems, and customer service platforms.', solutions: ['Network Management', 'Billing Systems', 'Customer Service', 'Network Security'] },
-  { icon: HeartHandshake, title: 'NGOs', description: 'Donation management, volunteer coordination, and impact tracking systems.', solutions: ['Donation Management', 'Volunteer Coordination', 'Impact Tracking', 'Grant Management'] },
+  { image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&auto=format&fit=crop', title: 'Healthcare', description: 'Electronic health records, telemedicine platforms, and healthcare management systems.', solutions: ['EHR Systems', 'Telemedicine', 'Medical Billing', 'Patient Management'] },
+  { image: 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?q=80&w=600&auto=format&fit=crop', title: 'Banking & Finance', description: 'Secure banking applications, trading platforms, and financial management solutions.', solutions: ['Mobile Banking', 'Trading Platforms', 'Risk Management', 'Compliance'] },
+  { image: 'https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?q=80&w=600&auto=format&fit=crop', title: 'Government', description: 'Digital governance solutions, citizen portals, and public service management systems.', solutions: ['E-Government', 'Citizen Portals', 'Document Management', 'Public Services'] },
+  { image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop', title: 'Education', description: 'Learning management systems, educational platforms, and school administration software.', solutions: ['LMS Platforms', 'Virtual Classrooms', 'Student Management', 'E-Learning'] },
+  { image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop', title: 'Manufacturing', description: 'Industry 4.0 solutions, IoT integration, and production management systems.', solutions: ['IoT Solutions', 'Production Management', 'Quality Control', 'Supply Chain'] },
+  { image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop', title: 'Retail', description: 'E-commerce platforms, POS systems, and customer experience solutions.', solutions: ['E-Commerce', 'POS Systems', 'Inventory Management', 'Customer Loyalty'] },
+  { image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop', title: 'Logistics', description: 'Fleet management, tracking systems, and supply chain optimization solutions.', solutions: ['Fleet Management', 'Route Optimization', 'Tracking Systems', 'Warehouse Management'] },
+  { image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=600&auto=format&fit=crop', title: 'Agriculture', description: 'Smart farming solutions, crop management systems, and agricultural technology.', solutions: ['Smart Farming', 'Crop Management', 'Weather Integration', 'Market Analysis'] },
+  { image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop', title: 'Telecommunications', description: 'Network management, billing systems, and customer service platforms.', solutions: ['Network Management', 'Billing Systems', 'Customer Service', 'Network Security'] },
+  { image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=600&auto=format&fit=crop', title: 'NGOs', description: 'Donation management, volunteer coordination, and impact tracking systems.', solutions: ['Donation Management', 'Volunteer Coordination', 'Impact Tracking', 'Grant Management'] },
 ];
 
 const INITIAL_COUNT = 6;
@@ -38,15 +38,17 @@ export function Solutions() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 sm:gap-8 2xl:gap-10 mb-8">
           {displayed.map((industry, index) => {
-            const Icon = industry.icon;
             return (
-              <Card key={index} className="group hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <CardHeader>
-                  <div className="w-14 h-14 bg-gradient-secondary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-md">
-                    <Icon className="w-7 h-7 text-white" />
-                  </div>
-                  <CardTitle className="text-xl 2xl:text-2xl">{industry.title}</CardTitle>
-                </CardHeader>
+              <Card key={index} className="group hover:border-secondary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden p-0">
+                <div className="h-48 w-full overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                  <img src={industry.image} alt={industry.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 relative z-0" />
+                </div>
+                <div className="p-6">
+                  <CardHeader className="!mb-2">
+                    <CardTitle className="text-xl 2xl:text-2xl">{industry.title}</CardTitle>
+                  </CardHeader>
+
                 <CardContent>
                   <p className="text-sm 2xl:text-base mb-4 leading-relaxed">{industry.description}</p>
                   <div className="flex flex-wrap gap-2">
@@ -60,6 +62,7 @@ export function Solutions() {
                     ))}
                   </div>
                 </CardContent>
+                </div>
               </Card>
             );
           })}

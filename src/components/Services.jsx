@@ -9,23 +9,23 @@ import {
 } from 'lucide-react';
 
 const services = [
-  { icon: Code, title: 'Custom Software Development', description: 'Tailored software solutions designed to meet your unique business requirements and drive operational efficiency.' },
-  { icon: Globe, title: 'Web Development', description: 'Modern, responsive, and high-performance web applications built with cutting-edge technologies.' },
-  { icon: Smartphone, title: 'Mobile App Development', description: 'Native and cross-platform mobile applications for iOS and Android with exceptional user experiences.' },
-  { icon: Database, title: 'ERP Solutions', description: 'Comprehensive ERP implementations including Odoo, SAP, and Microsoft Dynamics for business optimization.' },
-  { icon: Users, title: 'CRM Solutions', description: 'Customer Relationship Management systems to enhance customer interactions and drive sales growth.' },
-  { icon: Cloud, title: 'Cloud Solutions', description: 'Cloud migration, architecture, and management services on AWS, Azure, and Google Cloud Platform.' },
-  { icon: RefreshCw, title: 'DevOps', description: 'CI/CD pipelines, infrastructure automation, and continuous delivery solutions for faster deployments.' },
-  { icon: Brain, title: 'AI & Machine Learning', description: 'Intelligent solutions powered by artificial intelligence and machine learning algorithms.' },
-  { icon: Shield, title: 'Cybersecurity', description: 'Comprehensive security solutions to protect your digital assets and ensure compliance.' },
-  { icon: Palette, title: 'UI/UX Design', description: 'User-centered design solutions that create intuitive and engaging digital experiences.' },
-  { icon: Link, title: 'API Integration', description: 'Seamless integration of third-party services and APIs to extend your application capabilities.' },
-  { icon: BarChart, title: 'Data Analytics', description: 'Advanced analytics and business intelligence solutions to transform data into actionable insights.' },
-  { icon: Brain, title: 'Business Intelligence', description: 'Strategic BI solutions that empower data-driven decision making across your organization.' },
-  { icon: RefreshCw, title: 'Digital Transformation', description: 'End-to-end digital transformation services to modernize your business processes and operations.' },
-  { icon: MessageSquare, title: 'IT Consulting', description: 'Expert IT advisory services to guide your technology strategy and implementation.' },
-  { icon: CheckCircle, title: 'Quality Assurance', description: 'Rigorous testing and quality assurance processes to ensure flawless software delivery.' },
-  { icon: Wrench, title: 'Maintenance & Support', description: 'Ongoing maintenance and 24/7 support services to keep your systems running smoothly.' },
+  { image: '/images/service_software_1784958063143.jpg', title: 'Custom Software Development', description: 'Tailored software solutions designed to meet your unique business requirements and drive operational efficiency.' },
+  { image: '/images/service_web_1784958071477.jpg', title: 'Web Development', description: 'Modern, responsive, and high-performance web applications built with cutting-edge technologies.' },
+  { image: '/images/service_mobile_1784958082325.jpg', title: 'Mobile App Development', description: 'Native and cross-platform mobile applications for iOS and Android with exceptional user experiences.' },
+  { image: '/images/service_erp_1784958090909.jpg', title: 'ERP Solutions', description: 'Comprehensive ERP implementations including Odoo, SAP, and Microsoft Dynamics for business optimization.' },
+  { image: '/images/service_crm_1784958101204.jpg', title: 'CRM Solutions', description: 'Customer Relationship Management systems to enhance customer interactions and drive sales growth.' },
+  { image: '/images/service_cloud_1784958111380.jpg', title: 'Cloud Solutions', description: 'Cloud migration, architecture, and management services on AWS, Azure, and Google Cloud Platform.' },
+  { image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=600&auto=format&fit=crop', title: 'DevOps', description: 'CI/CD pipelines, infrastructure automation, and continuous delivery solutions for faster deployments.' },
+  { image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop', title: 'AI & Machine Learning', description: 'Intelligent solutions powered by artificial intelligence and machine learning algorithms.' },
+  { image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop', title: 'Cybersecurity', description: 'Comprehensive security solutions to protect your digital assets and ensure compliance.' },
+  { image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=600&auto=format&fit=crop', title: 'UI/UX Design', description: 'User-centered design solutions that create intuitive and engaging digital experiences.' },
+  { image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop', title: 'API Integration', description: 'Seamless integration of third-party services and APIs to extend your application capabilities.' },
+  { image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop', title: 'Data Analytics', description: 'Advanced analytics and business intelligence solutions to transform data into actionable insights.' },
+  { image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop', title: 'Business Intelligence', description: 'Strategic BI solutions that empower data-driven decision making across your organization.' },
+  { image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop', title: 'Digital Transformation', description: 'End-to-end digital transformation services to modernize your business processes and operations.' },
+  { image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600&auto=format&fit=crop', title: 'IT Consulting', description: 'Expert IT advisory services to guide your technology strategy and implementation.' },
+  { image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop', title: 'Quality Assurance', description: 'Rigorous testing and quality assurance processes to ensure flawless software delivery.' },
+  { image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop', title: 'Maintenance & Support', description: 'Ongoing maintenance and 24/7 support services to keep your systems running smoothly.' },
 ];
 
 const INITIAL_COUNT = 6;
@@ -46,21 +46,24 @@ export function Services() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 sm:gap-8 2xl:gap-10">
           {displayed.map((service, index) => {
-            const Icon = service.icon;
             return (
-              <Card key={index} className="group hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <CardHeader>
-                  <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-md">
-                    <Icon className="w-7 h-7 text-white" />
-                  </div>
-                  <CardTitle className="text-xl 2xl:text-2xl">{service.title}</CardTitle>
-                </CardHeader>
+              <Card key={index} className="group hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden p-0">
+                <div className="h-48 w-full overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 relative z-0" />
+                </div>
+                <div className="p-6">
+                  <CardHeader className="!mb-2">
+                    <CardTitle className="text-xl 2xl:text-2xl">{service.title}</CardTitle>
+                  </CardHeader>
                 <CardContent>
                   <p className="text-sm 2xl:text-base leading-relaxed">{service.description}</p>
                 </CardContent>
+                </div>
               </Card>
             );
           })}
+
         </div>
 
         {/* See More / Show Less Button */}
