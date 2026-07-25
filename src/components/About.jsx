@@ -159,17 +159,17 @@ export function About() {
         <div>
           <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-10 text-center">Our Journey</h3>
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-primary" />
+            <div className="absolute left-2 sm:left-1/2 sm:-translate-x-1/2 h-full w-1 bg-gradient-primary" />
             <div className="space-y-12">
               {timeline.map((item, index) => (
-                <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+                <div key={index} className={`relative flex items-center pl-8 sm:pl-0 ${index % 2 === 0 ? 'sm:justify-start' : 'sm:justify-end'}`}>
+                  <div className={`w-full sm:w-1/2 ${index % 2 === 0 ? 'sm:pr-8 sm:text-right' : 'sm:pl-8 sm:text-left'}`}>
                     <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg inline-block">
                       <span className="text-2xl font-bold gradient-text">{item.year}</span>
                       <p className="text-gray-600 dark:text-gray-300 mt-2">{item.event}</p>
                     </div>
                   </div>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-secondary rounded-full border-4 border-white dark:border-gray-900" />
+                  <div className="absolute left-2 sm:left-1/2 -translate-x-1/2 w-4 h-4 bg-secondary rounded-full border-4 border-white dark:border-gray-900" />
                 </div>
               ))}
             </div>

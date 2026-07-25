@@ -14,7 +14,7 @@ const navItems = [
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') === 'dark');
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -32,6 +32,7 @@ export function Navigation() {
     } else {
       document.documentElement.classList.remove('dark');
     }
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
   }, [isDark]);
 
   useEffect(() => {
@@ -110,6 +111,9 @@ export function Navigation() {
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
+              aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               className="p-2 rounded-xl bg-gray-100/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-200"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -119,7 +123,7 @@ export function Navigation() {
 
         {/* Mobile Navigation Dropdown */}
         {isOpen && (
-          <div className="md:hidden mt-4 pt-4 border-t border-gray-200/80 dark:border-gray-800/80 animate-fade-in">
+          <div id="mobile-navigation" className="md:hidden mt-4 pt-4 border-t border-gray-200/80 dark:border-gray-800/80 animate-fade-in">
             <div className="space-y-2 pb-3">
               {navItems.map((item) => {
                 const isActive = location.pathname === item.href;

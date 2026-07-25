@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Section, SectionHeader } from './ui/Section';
+import { Button } from './ui/Button';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/Card';
 import { ExternalLink, Star, TrendingUp, ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -131,10 +133,10 @@ export function Portfolio() {
                   <p className="text-xs italic text-gray-600 dark:text-gray-300">&quot;{project.testimonial}&quot;</p>
                 </div>
 
-                <button className="w-full mt-4 text-primary font-semibold text-sm flex items-center justify-center gap-2 hover:gap-3 transition-all">
+                <Button as={Link} to={`/contact?project=${encodeURIComponent(project.title)}`} variant="ghost" className="w-full mt-4 text-primary hover:text-primary hover:bg-primary/10">
                   View Case Study
                   <ExternalLink className="w-4 h-4" />
-                </button>
+                </Button>
               </CardContent>
             </Card>
           ))}

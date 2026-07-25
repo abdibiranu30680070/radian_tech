@@ -19,6 +19,7 @@ export function Button({ as: Component = 'button', variant = 'primary', size = '
   
   return (
     <Component
+      type={Component === 'button' ? 'button' : undefined}
       className={cn(baseStyles, variants[variant], sizes[size], className)}
       {...props}
     >

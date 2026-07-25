@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Section, SectionHeader } from './ui/Section';
 import { Mail, Phone, MapPin, MessageSquare, Send } from 'lucide-react';
 
 export function Contact() {
+  const [searchParams] = useSearchParams();
+  const [submissionStatus, setSubmissionStatus] = useState('');
+  const selectedProject = searchParams.get('project');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const subject = formData.get('subject') === 'project' && selectedProject
+      ? `Project inquiry: ${selectedProject}`
+      : formData.get('subject') || 'Website inquiry';
+    const body = [
+      `Name: ${formData.get('firstName')} ${formData.get('lastName')}`,
+      `Email: ${formData.get('email')}`,
+      `Phone: ${formData.get('phone') || 'Not provided'}`,
+      '',
+      formData.get('message'),
+    ].join('\n');
+
+    setSubmissionStatus('Your email app is opening with your message ready to send.');
+    window.location.href = `mailto:info@radiantech.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <Section id="contact" background="gray">
       <div className="max-w-7xl mx-auto">
@@ -24,8 +47,8 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Email</h4>
-                  <p className="text-gray-600 dark:text-gray-400">info@radiantech.com</p>
-                  <p className="text-gray-600 dark:text-gray-400">support@radiantech.com</p>
+                  <a href="mailto:info@radiantech.com" className="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-blue-300">info@radiantech.com</a>
+                  <a href="mailto:support@radiantech.com" className="block text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-blue-300">support@radiantech.com</a>
                 </div>
               </div>
 
@@ -35,8 +58,8 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Phone</h4>
-                  <p className="text-gray-600 dark:text-gray-400">+251 911 123 456</p>
-                  <p className="text-gray-600 dark:text-gray-400">+1 (555) 987-6543</p>
+                  <a href="tel:+251911123456" className="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-blue-300">+251 911 123 456</a>
+                  <a href="tel:+15559876543" className="block text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-blue-300">+1 (555) 987-6543</a>
                 </div>
               </div>
 
@@ -60,9 +83,9 @@ export function Contact() {
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Live Chat</h4>
                   <p className="text-gray-600 dark:text-gray-400">Available 24/7</p>
-                  <button className="text-primary font-semibold mt-1 hover:underline">
+                  <a href="mailto:info@radiantech.com?subject=Live%20chat%20request" className="inline-block text-primary font-semibold mt-1 hover:underline">
                     Start Chat
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -81,32 +104,37 @@ export function Contact() {
           <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send us a Message</h3>
             
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              {selectedProject && (
+                <p className="rounded-lg border border-primary/20 bg-primary/10 px-4 py-3 text-sm text-primary" role="status">
+                  You&apos;re enquiring about <strong>{selectedProject}</strong>.
+                </p>
+              )}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">First Name *</label>
-                  <input type="text" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="John" />
+                  <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">First Name *</label>
+                  <input id="firstName" name="firstName" type="text" required autoComplete="given-name" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="John" />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Last Name *</label>
-                  <input type="text" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="Doe" />
+                  <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Last Name *</label>
+                  <input id="lastName" name="lastName" type="text" required autoComplete="family-name" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="Doe" />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Email *</label>
-                <input type="email" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="john@example.com" />
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Email *</label>
+                <input id="email" name="email" type="email" required autoComplete="email" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="john@example.com" />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Phone</label>
-                <input type="tel" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="+251 911 000 000" />
+                <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Phone</label>
+                <input id="phone" name="phone" type="tel" autoComplete="tel" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="+251 911 000 000" />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Subject *</label>
-                <select className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
-                  <option value="">Select a subject</option>
+                <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Subject *</label>
+                <select id="subject" name="subject" required defaultValue={selectedProject ? 'project' : ''} className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
+                  <option value="" disabled>Select a subject</option>
                   <option value="project">Project Inquiry</option>
                   <option value="consultation">Consultation</option>
                   <option value="support">Support</option>
@@ -116,9 +144,11 @@ export function Contact() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Message *</label>
-                <textarea rows={5} className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white resize-none" placeholder="Tell us about your project..." />
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Message *</label>
+                <textarea id="message" name="message" rows={5} required defaultValue={selectedProject ? `I would like to learn more about ${selectedProject}.` : ''} className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white resize-none" placeholder="Tell us about your project..." />
               </div>
+
+              {submissionStatus && <p className="text-sm text-emerald-600 dark:text-emerald-400" role="status">{submissionStatus}</p>}
 
               <button type="submit" className="w-full bg-gradient-primary text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2">
                 Send Message
