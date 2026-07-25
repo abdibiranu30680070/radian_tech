@@ -1,7 +1,7 @@
 import React from 'react';
 import { Section, SectionHeader } from './ui/Section';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/Card';
-import { Target, Eye, Heart, Users, Globe, Award, Shield } from 'lucide-react';
+import { Target, Eye, Heart, Users, MapPin, Award, Shield } from 'lucide-react';
 
 const coreValues = [
   {
@@ -53,9 +53,9 @@ const timeline = [
   { year: '2025 Q1', event: 'RadianTech Founded by Ashenafi Birhanu' },
   { year: '2025 Q2', event: 'First Enterprise Client Onboarded' },
   { year: '2025 Q3', event: 'Launched Cloud & AI Division' },
-  { year: '2025 Q4', event: 'Expanded to 5+ Countries' },
+  { year: '2025 Q4', event: 'Expanded to Major Regions Nationally' },
   { year: '2026 Q1', event: 'Reached 50+ Projects Milestone' },
-  { year: '2026 Q2', event: 'Global Presence in 10+ Countries' },
+  { year: '2026 Q2', event: 'National Presence in Major Cities' },
 ];
 
 export function About() {
@@ -181,18 +181,18 @@ export function About() {
           </div>
         </div>
 
-        {/* Global Presence */}
+        {/* National Presence */}
         <div className="mt-20 text-center">
           <div className="bg-gradient-primary rounded-2xl p-12 text-white">
-            <Globe className="w-16 h-16 mx-auto mb-6" />
-            <h3 className="text-3xl font-bold mb-4">Global Presence</h3>
+            <MapPin className="w-16 h-16 mx-auto mb-6" />
+            <h3 className="text-3xl font-bold mb-4">National Presence</h3>
             <p className="text-xl opacity-90 mb-6">
-              Serving clients across 10+ countries with offices in major technology hubs worldwide.
+              Serving clients across Ethiopia with operations in major regional hubs.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              {['Ethiopia', 'USA', 'UK', 'UAE', 'Germany', 'India', 'Kenya', 'Nigeria'].map((country) => (
-                <span key={country} className="bg-white/20 px-4 py-2 rounded-full font-medium">
-                  {country}
+              {['Addis Ababa', 'Dire Dawa', 'Mekelle', 'Hawassa', 'Adama', 'Bahir Dar', 'Gondar', 'Dessie'].map((city) => (
+                <span key={city} className="bg-white/20 px-4 py-2 rounded-full font-medium">
+                  {city}
                 </span>
               ))}
             </div>
